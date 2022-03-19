@@ -1,4 +1,4 @@
-
+def status
 pipeline {
   agent any
   stages {
@@ -12,10 +12,10 @@ pipeline {
     stage('Check Nginx Status') {
       steps {
         sh 'curl -s -o /dev/null -w "%{http_code}" localhost:9889' > status.txt
-        def status = sh (
+        status = sh (
           script: 'cat status.txt',
           returnStdout:true
-        ).trim
+        ).trim()
         if ("${status}"=="200") {
           println("Nginx is UP correctly")
         }
