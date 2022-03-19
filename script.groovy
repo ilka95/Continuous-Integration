@@ -16,6 +16,8 @@ pipeline {
           status = sh 'cat status'
           if("${status}"=="200") {
             println("Nginx is UP correctly")
+          } else {
+            println("Nginx is UP incorrectly")
           }
         }
       }
