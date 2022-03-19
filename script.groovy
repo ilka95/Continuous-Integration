@@ -32,11 +32,12 @@ pipeline {
             script: 'cat index/index.html | md5sum',
             returnStdout: true
           ).trim()
+	  println("Index.html md5sum = ${sum}")
           def result = sh (
             script: 'curl localhost:9889 | grep ${sum}',
             returnStdout: true
           ).trim()
-          
+          println("Index.html curl md5sum = ${result}")
           if("${result}" != null) {
             println("Index.html is correct!")
           } else {
