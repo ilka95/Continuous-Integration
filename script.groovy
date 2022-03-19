@@ -50,5 +50,13 @@ pipeline {
         }
       }
     }
+    stage('Stop Docker') {
+      steps {
+        sh(script:''' 
+          sudo -S docker stop mynginx < /tmp/pass
+	  sudo -S docker rm mynginx < /tmp/pass
+        ''')
+      }
+    }
   }
 }
