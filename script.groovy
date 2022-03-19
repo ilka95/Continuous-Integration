@@ -17,7 +17,7 @@ pipeline {
           if("${status}"=="200") {
             println("Nginx is UP correctly")
           } else {
-            println("Nginx is UP incorrectly")
+            println("Nginx is UP incorrectly! Status = ${status}")
           }
         }
       }
