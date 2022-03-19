@@ -1,4 +1,6 @@
 def status
+def status_error = 'NoErrors'
+def md5sum_error = 'NoErrors'
 pipeline {
   agent any
   stages {
@@ -21,6 +23,7 @@ pipeline {
             println("Nginx is UP correctly!")
           } else {
             println("Nginx is UP incorrectly! Status = ${status}")
+	    status_error = 'Error'
           }
         }
       }
@@ -42,6 +45,7 @@ pipeline {
             println("Index.html is correct!")
           } else {
             println("Index.html is incorrect!")
+	    md5sum_error = 'Error'
           }
         }
       }
