@@ -15,7 +15,7 @@ pipeline {
         //status = sh (script: 'cat status.txt')
         //if("${status}"=="200") {
         //  println("Nginx is UP correctly")
-        }
+        //}
       }
     }
   }
