@@ -6,7 +6,7 @@ pipeline {
       steps {
         sh(script:'''
           whoami
-          sudo -S docker run --name mynginx -p 80:9889 -d nginx < '123';
+          sudo -S docker run --name mynginx -p 80:9889 -d nginx;
         ''')
       }
     }
