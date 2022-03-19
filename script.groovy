@@ -13,7 +13,7 @@ pipeline {
       steps {
         sh 'curl -s -o /dev/null -w "%{http_code}" localhost:9889 > status'
         script {
-          status = cat status
+          status = sh 'cat status'
           if("${status}"=="200") {
             println("Nginx is UP correctly")
           }
