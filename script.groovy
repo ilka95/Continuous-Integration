@@ -11,7 +11,7 @@ pipeline {
     }
     stage('Check Nginx Status') {
       steps {
-        sh 'curl -s -o /dev/null -w "%{http_code}" localhost:9889' > status.txt
+        sh 'curl -s -o /dev/null -w "%{http_code}" localhost:9889 > status.txt'
         status = sh (
           script: 'cat status.txt',
           returnStdout:true
