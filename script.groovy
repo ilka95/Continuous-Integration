@@ -24,7 +24,8 @@ pipeline {
           }
         }
       }
-      stage('Check md5sum') {
+	}
+    stage('Check md5sum') {
       steps {
         script {
           def sum = sh (
