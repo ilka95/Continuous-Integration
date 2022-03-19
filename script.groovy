@@ -12,8 +12,11 @@ pipeline {
     stage('Check Nginx Status') {
       steps {
         sh 'curl -s -o /dev/null -w "%{http_code}" localhost:9889' > status.txt
-        def status = $(cat ststus.txt)
-        if (${status}=200) {
+        def status = sh (
+          script: 'cat status.txt',
+          returnStdout:true
+        ).trim
+        if ("${status}"=="200") {
           println("Nginx is UP correctly")
         }
       }
