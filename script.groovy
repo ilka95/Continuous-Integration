@@ -16,7 +16,7 @@ pipeline {
           script: 'cat status.txt',
           returnStdout:true
         ).trim()
-        if ("${status}"=="200") {
+        if("${status}"=="200") {
           println("Nginx is UP correctly")
         }
       }
